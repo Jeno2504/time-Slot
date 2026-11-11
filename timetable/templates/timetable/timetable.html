@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Timetable</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { text-align: center; }
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid #333; padding: 10px; text-align: center; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Class Timetable</h1>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Subject</th>
+            <th>Faculty</th>
+            <th>Room No</th>
+        </tr>
+        {% for slot in slots %}
+        <tr>
+            <td>{{ slot.day }}</td>
+            <td>{{ slot.start_time }}</td>
+            <td>{{ slot.end_time }}</td>
+            <td>{{ slot.subject_name }}</td>
+            <td>{{ slot.faculty_name }}</td>
+            <td>{{ slot.room_no }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No timetable records available.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
